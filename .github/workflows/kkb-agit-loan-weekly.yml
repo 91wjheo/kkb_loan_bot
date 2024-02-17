@@ -1,4 +1,4 @@
-name: 'kkb-agit-loan-weekly'
+name : 'kkb-agit-loan-weekly'
 
 on:
     workflow_dispatch:
