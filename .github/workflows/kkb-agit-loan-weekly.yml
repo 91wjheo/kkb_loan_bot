@@ -1,18 +1,33 @@
 name : 'kkb-agit-loan-weekly'
 
-on: push
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: "0/1 * * * *"
     
 jobs:
-  echo:
-    runs-on: ubuntu-latest 
-    steps:
-      - run: echo 'Hello actions'
+  kkb-agit-loan:
+      name: 'Agit push'
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v1
+        - name: Send KKB agit
+          uses: ./.github/actions/kkb-agit
 
-  pwd-ls:
-    name : PWD&LS
-    runs-on: ubuntu-latest
-    steps:
-        - name: print working directory
-          run: pwd
-        - name: List files
-          run: ls -al
+          with:
+              agit_incoming_url: ${{secrets.AGIT_INCOMING_URL}}
+      
+      
+  # echo:
+  #   runs-on: ubuntu-latest 
+  #   steps:
+  #     - run: echo 'Hello actions'
+
+  # pwd-ls:
+  #   name : PWD&LS
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #       - name: print working directory
+  #         run: pwd
+  #       - name: List files
+  #         run: ls -al
