@@ -16,7 +16,7 @@ jobs:
 
           with:
               agit_incoming_url: ${{secrets.AGIT_INCOMING_URL}}
-      
+              agit_loan_text: ${{vars.WEEKLY_BUSINESS_REPORT_FORM}}
       
   # echo:
   #   runs-on: ubuntu-latest 
