@@ -3,7 +3,8 @@ name: 'kkb-agit'
 inputs:
   agit_incoming_url:
     required: true
-
+  agit_loan_text:
+    required: true
 runs:
   using: 'composite'
 
@@ -38,7 +39,7 @@ runs:
         done < ./.github/datas/bth.dat
 
 
-        TEXT=${{ agit_loan_text }}
+        TEXT=${{ inputs.agit_loan_text }}
         # "@group 매주 월요일\n\n#여신플랫폼 *캠프* \n*대출서비스* \n -\n*신용대출* \n -\n*연계대출* \n -\n*대출플랫폼* \n -\n*오토론* \n -\n*여신관리* \n -\n*신용정보* \n -\n*공통및기타* \n -\n\n#담보여신 *캠프* \n -\n\n#개인사업자 *캠프* \n -"
 
         if [ -z ${EVENT} ]; then
