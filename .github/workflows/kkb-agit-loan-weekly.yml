@@ -3,7 +3,7 @@ name : 'kkb-agit-loan-weekly'
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0/1 * * * *"
+        - cron: "* * * * *"
     
 jobs:
   kkb-agit-loan:
