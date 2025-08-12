@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: "0 0 * * 4"
+    - cron: "00 23 * * 3" 
 
 jobs:
   kkb-agit-loan:
