@@ -1,0 +1,20 @@
+name: 'kkb-agit-loan-weekly'
+
+on:
+  workflow_dispatch:
+
+  # schedule:
+  #   - cron: "00 23 * * 3"
+
+jobs:
+  kkb-agit-loan:
+    name: 'Agit push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Send KKB agit
+        uses: ./.github/actions/kkb-agit
+
+        with:
+          agit_incoming_url: ${{ secrets.AGIT_INCOMING_URL }}
